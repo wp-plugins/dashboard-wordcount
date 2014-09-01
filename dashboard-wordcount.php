@@ -3,7 +3,7 @@
  * Plugin Name: Dashboard Wordcount
  * Plugin URI: 
  * Description: Updates the Dashboard's At a Glance widget to show the total word count of all the published posts in this Wordpress website (and average word count per post). Also shows the age of the website (time since the oldest post). Uses the default dashboard icons and styling, so it's completely seamless. Just more information for you.
- * Version: 0.1
+ * Version: 0.2
  * Author: Ricardo Jorge
  * Author URI: http://www.ricardojorge.net/
  * License: GPL2
