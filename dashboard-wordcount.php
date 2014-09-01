@@ -41,7 +41,7 @@
 		$average /= count($posts);
 		$average = number_format_i18n( $average );
 		$url = admin_url( 'edit.php' );
-		echo "<li class='word-count'><a href='{$url}' title='Average of {$average} words per post'>{$num} {$text}</a></li>";
+		echo "<style scoped>.word-count a:before { content:'\\f122' !important; }</style><li class='word-count'><a href='{$url}' title='Average of {$average} words per post'>{$num} {$text}</a></li>";
 	}
 
 	// add to Content Stats table
@@ -52,7 +52,7 @@
 		$diff = ax_first_post_date_diff();
 
 		$url = admin_url( 'edit.php' );
-		echo "<li class='year-count' ><a href='{$url}' title='Since {$oldest}'>{$diff}</a></li>";
+		echo "<style scoped>.year-count a:before {content:'\\f118' !important;}</style><li class='year-count' ><a href='{$url}' title='Since {$oldest}'>{$diff}</a></li>";
 	}
 
 	// add to Content Stats table

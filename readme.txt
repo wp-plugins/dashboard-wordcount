@@ -3,7 +3,7 @@ Contributors: ricardjorg
 Tags: dashboard,word,words,count,word count,stats,blog,since,age,period,time,average,post,at a glance,glance
 Requires at least: 3.8.0
 Tested up to: 4.0
-Stable tag: 0.1
+Stable tag: 0.2
 
 Updates the Dashboard's At a Glance widget to show the total word count of all the published posts and age of this Wordpress website.
 
@@ -12,3 +12,11 @@ Updates the Dashboard's At a Glance widget to show the total word count of all t
 
 == Screenshots ==
 1. You can see the total word count of the published posts in the site and the average words per post. Also the current human readable age of the website and the date of the oldest post.
+
+== Changelog ==
+
+= 0.2 =
+* Added styles so that the two items show icons on the page
+
+= 0.1 =
+* Initial release
