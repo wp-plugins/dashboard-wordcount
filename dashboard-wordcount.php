@@ -3,7 +3,7 @@
  * Plugin Name: Dashboard Wordcount
  * Plugin URI: 
  * Description: Updates the Dashboard's At a Glance widget to show the total word count of all the published posts in this Wordpress website (and average word count per post). Also shows the age of the website (time since the oldest post). Uses the default dashboard icons and styling, so it's completely seamless. Just more information for you.
- * Version: 0.2
+ * Version: 0.3
  * Author: Ricardo Jorge
  * Author URI: http://www.ricardojorge.net/
  * License: GPL2
@@ -48,8 +48,8 @@
 	add_action('dashboard_glance_items', 'post_word_count');
 
 	function post_year_count() {
-		$oldest = ax_first_post_date();
-		$diff = ax_first_post_date_diff();
+		$oldest = dbwc_first_post_date();
+		$diff = dbwc_first_post_date_diff();
 
 		$url = admin_url( 'edit.php' );
 		echo "<style scoped>.year-count a:before {content:'\\f118' !important;}</style><li class='year-count' ><a href='{$url}' title='Since {$oldest}'>{$diff}</a></li>";
@@ -57,13 +57,24 @@
 
 	// add to Content Stats table
 	add_action( 'dashboard_glance_items', 'post_year_count');
+	
+	function post_comment_word_count() {
+		$current = dbwc_current_user_comment_word_count();
+		$total = dbwc_all_users_comment_word_count();
+		$others = $total - $current;
+		$url = admin_url( 'edit-comments.php' );
+		echo "<style scoped>.comment-word-count a:before { content:'\\f473' !important; }</style><li class='comment-word-count'><a href='{$url}' title='{$current} words in comments written by you and {$others} words in comments by other users'>{$total} words in comments</a></li>";
+	}
+
+	// add to Content Stats table
+	add_action( 'dashboard_glance_items', 'post_comment_word_count');
 
 	/**
 	* Get First Post Date Function
 	*
 	* @return Date of first post
 	*/
-	function ax_first_post_date() {
+	function dbwc_first_post_date() {
 		$ax_args = array(
 		'numberposts' => -1,
 		'post_status' => 'publish',
@@ -85,7 +96,7 @@
 		return $output;
 	}
 
-	function ax_first_post_date_diff() {
+	function dbwc_first_post_date_diff() {
 		$ax_args = array(
 		'numberposts' => -1,
 		'post_status' => 'publish',
@@ -102,5 +113,26 @@
 		$output = human_time_diff(get_the_time('U',$ax_first_post->ID), current_time('timestamp'));
 
 		return $output;
+	}
+	
+	function dbwc_current_user_comment_word_count() {
+		$count = 0;
+		$user_id = get_current_user_id();
+		$comments = get_comments( array(
+			'user_id' => $user_id
+		));
+		foreach( $comments as $comment ) {
+			$count += str_word_count( $comment->comment_content );
+		}
+		return $count;
+	}
+	
+	function dbwc_all_users_comment_word_count() {
+		$count = 0;
+		$comments = get_comments();
+		foreach( $comments as $comment ) {
+			$count += str_word_count( $comment->comment_content );
+		}
+		return $count;
 	}
 ?>
