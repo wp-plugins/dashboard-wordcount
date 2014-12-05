@@ -3,7 +3,7 @@ Contributors: ricardjorg
 Tags: dashboard,word,words,count,word count,stats,blog,since,age,period,time,average,post,at a glance,glance
 Requires at least: 3.8.0
 Tested up to: 4.0.1
-Stable tag: 0.4
+Stable tag: 0.5
 
 Updates the Dashboard's At a Glance widget to show the total word count of all the published posts and age of this Wordpress website.
 
@@ -15,7 +15,10 @@ Updates the Dashboard's At a Glance widget to show the total word count of all t
 
 == Changelog ==
 
-= 0.3 =
+= 0.5 =
+* Fixed the visitor's comments calculation (it was wrong because of the number formats, ironically)
+
+= 0.4 =
 * Changed the number formats, for readability
 
 = 0.3 =

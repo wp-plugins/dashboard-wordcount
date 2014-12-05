@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Dashboard Wordcount
- * Plugin URI: 
+ * Plugin URI: http://wordpress.org/support/view/plugin-reviews/dashboard-wordcount
  * Description: Updates the Dashboard's At a Glance widget to show the total word count of all the published posts in this Wordpress website (and average word count per post). Also shows the age of the website (time since the oldest post). Uses the default dashboard icons and styling, so it's completely seamless. Just more information for you.
- * Version: 0.4
+ * Version: 0.5
  * Author: Ricardo Jorge
  * Author URI: http://www.ricardojorge.net/
  * License: GPL2
@@ -59,9 +59,11 @@
 	add_action( 'dashboard_glance_items', 'post_year_count');
 	
 	function post_comment_word_count() {
-		$current = number_format_i18n( dbwc_current_user_comment_word_count() );
-		$total = number_format_i18n( dbwc_all_users_comment_word_count() );
+		$current = dbwc_current_user_comment_word_count();
+		$total = dbwc_all_users_comment_word_count();
 		$others = number_format_i18n( $total - $current );
+		$current = number_format_i18n( $current );
+		$total = number_format_i18n( $total );
 		$url = admin_url( 'edit-comments.php' );
 		echo "<style scoped>.comment-word-count a:before { content:'\\f473' !important; }</style><li class='comment-word-count'><a href='{$url}' title='{$current} words in comments written by you and {$others} words in comments by other users'>{$total} words in comments</a></li>";
 	}
