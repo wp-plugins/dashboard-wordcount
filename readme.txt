@@ -15,7 +15,7 @@ Updates the Dashboard's At a Glance widget to show the total word count of all t
 
 == Changelog ==
 
-= 0.3 =
+= 0.4 =
 * Changed the number formats, for readability
 
 = 0.3 =
