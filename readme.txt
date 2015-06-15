@@ -1,16 +1,16 @@
 === Dashboard Wordcount ===
-Contributors: ricardjorg,apasionados
+Contributors: ricardjorg
 Tags: dashboard,word,words,count,word count,stats,blog,since,age,period,time,average,post,at a glance,glance
 Plugin URI: https://github.com/ricardjorg/DashboardWordcount
 Author URI: http://www.ricardojorge.net
 Requires at least: 3.8.0
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 Stable tag: 0.7
 
-Updates the Dashboard's At a Glance widget to show the total word count of all the published posts and age of this Wordpress website.
+Updates the Dashboard's At a Glance widget to show the total word count of all the published posts and age of this WordPress website.
 
 == Description ==
-Updates the Dashboard's At a Glance widget to show the total word count of all the published posts in this Wordpress website (and average word count per post). Also shows the age of the website (time since the oldest post). Uses the default dashboard icons and styling, so it's completely seamless. Just more information for you.
+Updates the Dashboard's At a Glance widget to show the total word count of all the published posts in this WordPress website (and average word count per post). Also shows the age of the website (time since the oldest post). Uses the default dashboard icons and styling, so it's completely seamless. Just more information for you.
 
 Languages: English, Spanish and Portuguese
 
@@ -24,6 +24,7 @@ Special thanks to [Apasionados](https://profiles.wordpress.org/apasionados) for 
 = 0.7 =
 * Added Portuguese translation.
 * Added a plugin icon
+* Added a plugin banner
 
 = 0.6 =
 * By Apasionados https://profiles.wordpress.org/apasionados
